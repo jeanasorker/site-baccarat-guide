@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>再访 · 百家乐的故事</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', 'PingFang SC', Roboto, 'Helvetica Neue', sans-serif;
+      line-height: 1.7;
+      background-color: #f7f5f2;
+      color: #2e2b28;
+    }
+
+    /* 深色头图 — 故事开场 */
+    .hero {
+      background: linear-gradient(145deg, #0f0d0a 0%, #2a2520 100%);
+      color: #ede8df;
+      padding: 4.5rem 2rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: #c7a86d;
+      opacity: 0.6;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 300;
+      letter-spacing: 6px;
+      margin-bottom: 0.6rem;
+      color: #f2e6d0;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: #c9bca6;
+      max-width: 600px;
+      margin: 0 auto 0.8rem;
+      border-top: 1px solid #4b4238;
+      padding-top: 1rem;
+    }
+
+    .hero .short-line {
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: #e1d3bd;
+      margin-top: 1.2rem;
+      border-left: 2px solid #c7a86d;
+      padding-left: 1.6rem;
+      display: inline-block;
+    }
+
+    /* 浅色正文区 */
+    .content {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 2.8rem 2rem 3.5rem;
+    }
+
+    .intro-text {
+      font-size: 1.08rem;
+      margin-bottom: 2.4rem;
+      background: #ffffffdd;
+      padding: 1.8rem 2rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .intro-text p {
+      margin-bottom: 1.4rem;
+    }
+
+    .intro-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: #9e7e51;
+      text-decoration: none;
+      border-bottom: 1px solid #dac29c;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    a:hover {
+      color: #7d623c;
+      border-bottom-color: #7d623c;
+      background-color: #f3ede4;
+      padding: 0 4px;
+      margin: 0 -4px;
+      border-radius: 2px;
+    }
+
+    /* 特点卡片 */
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.8rem;
+      margin: 2.8rem 0 3rem;
+    }
+
+    .feature-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.04);
+      border-left: 4px solid #c7a86d;
+      transition: transform 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .feature-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #3b342d;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .feature-card p {
+      color: #4f4840;
+      font-size: 0.97rem;
+    }
+
+    /* 温和的引用/场景 */
+    .quote-block {
+      background: #f0ebe3;
+      padding: 2rem 2.2rem;
+      border-radius: 28px 8px 28px 8px;
+      margin: 2.2rem 0;
+      box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .quote-block p {
+      font-style: normal;
+      color: #3a342d;
+    }
+
+    .quote-block .source {
+      margin-top: 0.8rem;
+      font-size: 0.9rem;
+      color: #7f7569;
+      border-top: 1px solid #d6cdbf;
+      padding-top: 0.8rem;
+    }
+
+    /* FAQ 摘要 — 简短温和 */
+    .faq-digest {
+      margin: 2.5rem 0 1.8rem;
+    }
+
+    .faq-item {
+      padding: 1.2rem 1rem;
+      border-bottom: 1px solid #e5ddd2;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: #3d362e;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+
+    .faq-answer {
+      color: #5c544a;
+      font-size: 0.95rem;
+      padding-left: 0.2rem;
+    }
+
+    .ending-note {
+      margin-top: 3rem;
+      padding: 1.8rem 2rem;
+      background: #fffaf3;
+      border-radius: 40px 8px 40px 8px;
+      border: 1px solid #e3d8ca;
+      font-size: 1.02rem;
+      text-align: center;
+    }
+
+    .ending-note p {
+      margin-bottom: 0.3rem;
+    }
+
+    .ending-note .muted {
+      color: #7e7263;
+      font-size: 0.9rem;
+      margin-top: 0.6rem;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #ddd6ca;
+      margin: 2rem 0;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 2rem;
+        letter-spacing: 3px;
+      }
+      .hero .short-line {
+        font-size: 1.1rem;
+        padding-left: 1rem;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+      .content {
+        padding: 2rem 1.2rem;
+      }
+      .intro-text {
+        padding: 1.5rem 1.2rem;
+      }
+      .quote-block {
+        padding: 1.5rem 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 3rem 1rem 2.5rem;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 · 开场短句 -->
+  <header class="hero">
+    <h1>百家乐</h1>
+    <div class="sub">一张牌桌 · 无数种注视</div>
+    <div class="short-line">再次推开那扇门，灯火依旧温和。</div>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="content">
+
+    <!-- 承接段落：再次访问 / 收藏 / 持续关注 -->
+    <div class="intro-text">
+      <p>有些地方，第一次是好奇，第二次是回味，而第三次之后就成了习惯。<strong>收藏一个页面</strong>，有时不是因为即刻需要，而是因为它恰好承载了一段安静的记忆。如果你曾经留意过 <a href="https://site--baccarat.com">百家乐</a> 这三个字，或许这一次重新打开，会看到一些不一样的东西——节奏还是原来的，但细节里多了几分从容。</p>
+      <p>我们并不试图用言语去渲染输赢，也不愿把规则包装成神话。这里只是保留了牌桌旁真实的呼吸感：荷官的手指、筹码的轻响、旁观者屏住的那一口气。当你把目光投向屏幕，其实你是在阅读一群人如何与偶然相处。</p>
+    </div>
+
+    <!-- 特点列表 (卡片) -->
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>· 牌面透明</h3>
+        <p>所有规则与赔率清晰陈列，不藏不掖。你看到的，就是牌桌上发生的。</p>
+      </div>
+      <div class="feature-card">
+        <h3>· 专注节奏</h3>
+        <p>没有闪烁弹窗、没有紧迫倒计时。每一局之间，留给你足够的时间感受。</p>
+      </div>
+      <div class="feature-card">
+        <h3>· 场景朴素</h3>
+        <p>界面设计退到幕后，让牌局本身成为焦点。不追求华丽，只追求清晰。</p>
+      </div>
+      <div class="feature-card">
+        <h3>· 持续陪伴</h3>
+        <p>不必频繁刷新，也不必担心错过。这里的变化是缓慢的，就像老朋友偶尔的问候。</p>
+      </div>
+    </div>
+
+    <!-- 一个温和的场景/引用段落 -->
+    <div class="quote-block">
+      <p>“第二次打开一个页面，往往是因为第一次离开时，有什么东西轻轻钩住了你。也许是那个色调，也许是那一局牌结束时荷官微微停顿的瞬间。收藏夹里的链接，很多时候是我们悄悄留给自己的一枚书签。”<br>
+      <span class="source">—— 来自一位常访者的笔记</span></p>
+    </div>
+
+    <!-- FAQ 摘要（简短的 2-3 个） -->
+    <div class="faq-digest">
+      <div class="faq-item">
+        <div class="faq-question">· 每次回来内容会变吗？</div>
+        <div class="faq-answer">核心的规则与氛围保持一致，但偶尔会有一些细微的调整——像桌布换了个颜色，或者牌靴的角度改变了一点。熟悉，但不会完全相同。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">· 为什么要收藏这个页面？</div>
+        <div class="faq-answer">收藏不是为了催促你回来，而是当你某天忽然想起，能够不费力地找到它。一个安静的入口，比任何推送都更体贴。</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question">· 持续关注意味着什么？</div>
+        <div class="faq-answer">意味着你愿意把一部分闲暇交给一种古老的游戏逻辑。不需要每天报到，但你知道，那个页面始终在那里，不吵不闹。</div>
+      </div>
+    </div>
+
+    <!-- 温和结尾 -->
+    <div class="ending-note">
+      <p>一局结束，牌又洗好。</p>
+      <p>如果你愿意，下次再路过时，不妨停一下。</p>
+      <p class="muted">—— 页面的地址不会变，变的只是你再次打开时的心情。</p>
+    </div>
+
+    <hr>
+
+    <!-- 指向目标链接的嵌入句 (自然嵌入) -->
+    <p style="text-align: center; color: #6b6257; font-size: 0.95rem; margin-top: 0.2rem;">
+      这篇文章所提到的 <a href="https://site--baccarat.com">百家乐</a> 始终以它自己的方式存在着。
+    </p>
+
+  </main>
+
+</body>
+</html>
