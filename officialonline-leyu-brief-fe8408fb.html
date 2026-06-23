@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼 · 线上休闲站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background-color: #f8f9fc;
+      color: #1e232b;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ===== Hero ===== */
+    .hero {
+      background: linear-gradient(135deg, #0a0f1a 0%, #1a263d 60%, #0f1b2f 100%);
+      color: #eef2f8;
+      padding: 80px 0 64px;
+      text-align: center;
+      border-bottom: 4px solid #d3af5c;
+    }
+
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #d9b768;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto 28px;
+      color: #c6cddb;
+    }
+
+    .hero .tagline {
+      display: inline-block;
+      background: rgba(217, 183, 104, 0.18);
+      padding: 6px 22px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #e4d092;
+      border: 1px solid rgba(217, 183, 104, 0.3);
+    }
+
+    /* ===== 卡片通用 ===== */
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 32px;
+      color: #121826;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 3px;
+      background: #d3af5c;
+      margin-top: 8px;
+      border-radius: 2px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 28px 30px;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+      border: 1px solid #eef0f4;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      color: #1a212e;
+      font-weight: 500;
+    }
+
+    .card p {
+      color: #3e4653;
+      font-size: 0.98rem;
+    }
+
+    .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: #eceef5;
+      margin-bottom: 16px;
+      font-size: 1.3rem;
+    }
+
+    .card:nth-child(1) .icon-badge { background: #e3eafc; }
+    .card:nth-child(2) .icon-badge { background: #fceee3; }
+    .card:nth-child(3) .icon-badge { background: #e3f5ec; }
+    .card:nth-child(4) .icon-badge { background: #f4e7fc; }
+
+    /* ===== 说明区 ===== */
+    .explain-block {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px 44px;
+      margin: 0 0 32px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.02);
+      border: 1px solid #eef1f6;
+    }
+
+    .explain-block p {
+      font-size: 1.03rem;
+      margin-bottom: 20px;
+      color: #2a313f;
+    }
+
+    .explain-block p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-link {
+      color: #b0813a;
+      font-weight: 500;
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .highlight-link:hover {
+      border-bottom-color: #d3af5c;
+      color: #8f6728;
+    }
+
+    /* ===== FAQ 摘要 ===== */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .faq-item {
+      background: #f3f5fa;
+      border-radius: 16px;
+      padding: 18px 24px;
+      border-left: 4px solid #d3af5c;
+    }
+
+    .faq-item strong {
+      display: block;
+      color: #141b2a;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .faq-item p {
+      color: #394152;
+      font-size: 0.96rem;
+    }
+
+    /* ===== 底部链接 ===== */
+    .footer-links {
+      margin-top: 48px;
+      padding: 36px 0 20px;
+      border-top: 1px solid #dce0e8;
+      text-align: center;
+    }
+
+    .footer-links p {
+      font-size: 0.95rem;
+      color: #5a6478;
+      margin-bottom: 12px;
+    }
+
+    .footer-links a {
+      color: #a77e3d;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #7a5b2a;
+    }
+
+    .footer-links .muted {
+      color: #8b94a5;
+      font-size: 0.88rem;
+    }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 780px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .grid-2 {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .section {
+        padding: 40px 0;
+      }
+      .explain-block {
+        padding: 28px 22px;
+      }
+      .section-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 56px 0 44px;
+      }
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+      .container {
+        padding: 0 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <h1>与 <span>乐鱼</span> 一同<br>发现线上休闲的另一种质感</h1>
+      <p>一个专注于提供优质线上体验的站点，从界面到响应，处处流露用心。无论你是新朋友还是老用户，这里都值得你慢慢了解。</p>
+      <span class="tagline">✦ 真实 · 可靠 · 有温度</span>
+    </div>
+  </section>
+
+  <!-- 优势区 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="section-title">为什么选择我们</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="icon-badge">🧭</div>
+          <h3>清晰直观的结构</h3>
+          <p>页面布局经过反复推敲，信息层级一目了然。你不需要费劲寻找，就能快速找到自己关心的内容。每个模块都有它的位置。</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge">⚖️</div>
+          <h3>克制的信息呈现</h3>
+          <p>不堆砌夸张词汇，不搞花哨弹窗。我们相信，真正的好服务不需要喧哗，而是让用户自己去感受细节里的踏实。</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge">🌐</div>
+          <h3>稳定的访问环境</h3>
+          <p>技术层持续优化，确保在不同设备和网络条件下，页面都能保持流畅加载。你在意的时间，我们也同样在意。</p>
+        </div>
+        <div class="card">
+          <div class="icon-badge">🤝</div>
+          <h3>用户视角的打磨</h3>
+          <p>每一个功能点都从真实使用场景出发，避免多余的操作步骤。我们希望每次点击都符合你的预期，而不是制造困惑。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 说明区：站点介绍与可信说明 -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <h2 class="section-title">关于这个站点</h2>
+      <div class="explain-block">
+        <p>
+          <strong>乐鱼</strong> 并不是一个突然出现的名字。它由一群对线上体验有要求的人共同维护，从最初的构想到今天的稳定运营，始终遵循一个原则：让一切简单、透明、有据可查。你在这里看到的每个入口、每段说明，背后都有对应的功能支撑。
+        </p>
+        <p>
+          站点提供的内容涵盖多个日常休闲场景，但无论板块如何丰富，我们都坚持统一的信息可信标准。如果你对某个功能有疑问，或者想了解更多背后的细节，可以直接通过站内方式与我们沟通。保持开放，是我们一直以来的态度。
+        </p>
+        <p>
+          另外值得一提的是，我们从不使用诱导性话术或虚假承诺来吸引点击。你看到的每一个推荐、每一段引导，都经过内部自查。比如你想快速了解整个站点的核心服务，可以通过 <a href="https://officialonline-leyu.com" class="highlight-link">乐鱼</a> 直接抵达首页，一切都清晰呈现。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ 摘要 -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <h2 class="section-title">常见疑问摘要</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <strong>这个平台适合哪些人？</strong>
+          <p>适合所有希望拥有一个干净、可靠线上休闲空间的用户。无论你是偶尔放松，还是习惯固定访问，都能找到顺手的模块。</p>
+        </div>
+        <div class="faq-item">
+          <strong>信息更新及时吗？</strong>
+          <p>保持同步更新，活动与内容变动会通过公告或页面内提示告知。你也可以定期看看，几乎每次都会有一些小优化。</p>
+        </div>
+        <div class="faq-item">
+          <strong>有问题如何反馈？</strong>
+          <p>目前主要通过站内联系渠道，我们会在工作时段内逐条回复。你的每一次反馈，都会被记录下来用于后续改进。</p>
+        </div>
+      </div>
+      <p style="margin-top: 24px; font-size: 0.96rem; color: #5e687d;">
+        更多详细解答可以在首页对应板块找到，或直接前往 
+        <a href="https://officialonline-leyu.com" class="highlight-link">乐鱼</a> 
+        浏览完整内容。
+      </p>
+    </div>
+  </section>
+
+  <!-- 底部 -->
+  <footer class="footer-links">
+    <div class="container">
+      <p>
+        <a href="https://officialonline-leyu.com">乐鱼</a> 
+        <span class="muted">· 用心呈现 ·</span>
+        <a href="#">关于本站</a> 
+        <a href="#">联系方式</a>
+      </p>
+      <p class="muted" style="margin-top: 8px;">
+        页面内容仅供说明与介绍，不构成任何形式的使用承诺。<br>
+        如有疑问请以站内实时信息为准。
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
